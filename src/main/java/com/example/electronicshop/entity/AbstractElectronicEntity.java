@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import java.math.BigDecimal;
 
@@ -27,6 +29,7 @@ public class AbstractElectronicEntity {
     /**
      * Наименование
      */
+    @Enumerated(EnumType.STRING)
     private ProductType productType;
 
     /**

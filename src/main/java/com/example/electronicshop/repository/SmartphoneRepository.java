@@ -1,12 +1,11 @@
 package com.example.electronicshop.repository;
 
-import com.example.electronicshop.entity.PersonalComputerEntity;
+import com.example.electronicshop.entity.SmartphoneEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface PersonalComputerRepository extends JpaRepository<PersonalComputerEntity, Long>,
-        JpaSpecificationExecutor<PersonalComputerEntity> {
-
+public interface SmartphoneRepository extends JpaRepository<SmartphoneEntity, Long>,
+        JpaSpecificationExecutor<SmartphoneEntity> {
 }

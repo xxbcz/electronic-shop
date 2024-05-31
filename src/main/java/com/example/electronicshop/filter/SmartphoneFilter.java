@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Schema(description = "Фильтр по персональным компьютерам")
-public class SmartphoneFilter {
+public class SmartphoneFilter extends AbstractBaseFilter {
 
     @Schema(description = "Объем памяти")
     private Integer ram;
