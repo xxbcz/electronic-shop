@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Schema(description = "Фильтр по персональным компьютерам")
-public class VacuumCleanerFilter {
+public class VacuumCleanerFilter extends AbstractBaseFilter {
 
     @Schema(description = "Объем пылесборника")
     private String volumeOfVacuum;

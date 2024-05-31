@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Schema(description = "Фильтр по холодильникам")
-public class RefrigeratorFilter {
+public class RefrigeratorFilter extends AbstractBaseFilter {
 
     @Schema(description = "Количество дверей")
     private Integer numberOfDoors;

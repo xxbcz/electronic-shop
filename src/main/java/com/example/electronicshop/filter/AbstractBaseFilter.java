@@ -4,6 +4,8 @@ import com.example.electronicshop.type.ProductType;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
+import java.math.BigDecimal;
+
 @Data
 public class AbstractBaseFilter {
 
@@ -36,4 +38,10 @@ public class AbstractBaseFilter {
 
     @Schema(name = "Наличие товара")
     private Boolean inStock;
+
+    @Schema(name = "Цена товара от")
+    private Double priceFrom;
+
+    @Schema(name = "Цена товара до")
+    private Double priceTo;
 }

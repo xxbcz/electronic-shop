@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Schema(description = "Фильтр по персональным компьютерам")
-public class TVFilter {
+public class TVFilter extends AbstractBaseFilter {
 
     @Schema(description = "Категория телевизора")
     private String category;
