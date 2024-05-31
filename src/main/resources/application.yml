@@ -1,0 +1,31 @@
+server:
+  port: 8080
+app:
+  filter:
+    default:
+      page:
+        size: 30
+        number: 1
+        maxSize: 50
+spring:
+  application:
+    name: electronic-shop
+  flyway:
+    baselineOnMigrate: true
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        generate_statistics: true
+        order_inserts: true
+        jdbc.batch_size: 100
+  datasource:
+    url: jdbc:postgresql://localhost:5432/electronic-shop
+    driver-class-name: org.postgresql.Driver
+    password: postgres
+    username: postgres
+    hikari:
+      maximum-pool-size: 8
+      minimum-idle: 4
+
+
