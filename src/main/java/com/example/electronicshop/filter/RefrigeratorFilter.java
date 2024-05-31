@@ -1,4 +1,4 @@
-package com.example.electronicshop.model;
+package com.example.electronicshop.filter;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Schema(description = "Данные о холодильнике")
-public class RefrigeratorModel extends AbstractBaseModel{
+@Schema(description = "Фильтр по холодильникам")
+public class RefrigeratorFilter {
 
     @Schema(description = "Количество дверей")
     private Integer numberOfDoors;

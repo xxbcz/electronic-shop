@@ -9,10 +9,9 @@ import javax.persistence.Table;
 
 @Entity
 @Data
-@Table(name = "bank_account")
 @NoArgsConstructor
 @AllArgsConstructor
-public class PersonalComputer extends AbstractElectronicEntity{
+public class PersonalComputerEntity extends AbstractElectronicEntity{
 
     /**
      * Категория

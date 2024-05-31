@@ -22,7 +22,7 @@ public class AbstractElectronicEntity {
      * Идентификатор
      */
     @Id
-    private BigDecimal id;
+    private Long id;
 
     /**
      * Наименование
