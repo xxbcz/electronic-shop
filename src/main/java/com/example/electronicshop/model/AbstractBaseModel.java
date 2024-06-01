@@ -4,41 +4,48 @@ import com.example.electronicshop.type.ProductType;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
+import javax.persistence.Column;
 import java.math.BigDecimal;
 
 @Data
 abstract public class AbstractBaseModel {
 
-    @Schema(name = "Идентификатор товара")
-    private BigDecimal id;
+    @Schema(description = "Идентификатор товара")
+    private Long id;
 
-    @Schema(name = "Наименование товара")
+    @Schema(description = "Наименование товара")
     private ProductType productType;
 
-    @Schema(name = "Страна производитель")
+    @Schema(description = "Страна производитель")
     private String manufacturingCountry;
 
-    @Schema(name = "Фирма производитель")
+    @Schema(description = "Фирма производитель")
     private String brand;
 
-    @Schema(name = "Возможность покупки онлайн")
+    @Schema(description = "Возможность покупки онлайн")
     private Boolean isOnlineOrder;
 
-    @Schema(name = "Возможность покупки в рассрочку")
+    @Schema(description = "Возможность покупки в рассрочку")
     private Boolean isInstallmentPurchasing;
 
-    @Schema(name = "Серийный номер")
+    @Schema(description = "Серийный номер")
     private String serialNumber;
 
-    @Schema(name = "Цвет товара")
+    @Schema(description = "Цвет товара")
     private String color;
 
-    @Schema(name = "Размер товара")
+    @Schema(description = "Размер товара")
     private String size;
 
-    @Schema(name = "Цена товара")
-    private String price;
+    @Schema(description = "Цена товара")
+    private Double price;
 
-    @Schema(name = "Наличие товара")
+    @Schema(description = "Наличие товара")
     private Boolean inStock;
+
+    @Schema(description = "Полное наименование")
+    private String fullDescriptionType;
+
+    @Schema(description = "Модель товара")
+    private String model;
 }

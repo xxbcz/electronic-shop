@@ -2,11 +2,16 @@ package com.example.electronicshop.service;
 
 import com.example.electronicshop.filter.VacuumCleanerFilterRequest;
 import com.example.electronicshop.model.VacuumCleanerModel;
-import com.example.electronicshop.model.page.Page;
+import com.example.electronicshop.model.page.CustomPage;
 
 public interface VacuumCleanerService {
     /**
-     * Поиск пользователя с использованием фильтров/сортировки/пагинации
+     * Поиск пылесоса/ов с использованием фильтров/сортировки/пагинации
      */
-    Page<VacuumCleanerModel> findBy(VacuumCleanerFilterRequest filter);
+    CustomPage<VacuumCleanerModel> findBy(VacuumCleanerFilterRequest filter);
+
+    /**
+     * Добавление пылесоса
+     */
+    void addVacuumCleaner(VacuumCleanerModel model);
 }

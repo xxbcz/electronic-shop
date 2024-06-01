@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.domain.Sort;
 
 import java.util.List;
 
@@ -12,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Page<T> {
+public class CustomPage<T> {
 
     @Schema(description = "Номер страницы (нумерация с 1)")
     private int page;
@@ -20,6 +21,8 @@ public class Page<T> {
     private int size;
     @Schema(description = "Есть ли следующая страница")
     private boolean hasNext;
+    @Schema(description = "Направление сортировки")
+    private Sort.Direction sort;
     @Schema(description = "Список возвращаемых пользователей")
     private List<T> items;
 

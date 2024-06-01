@@ -1,78 +1,90 @@
 package com.example.electronicshop.entity;
 
 import com.example.electronicshop.type.ProductType;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.Id;
-import java.math.BigDecimal;
+import javax.persistence.*;
+
 
 /**
  * Базовый класс для товаров
  */
-@Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class AbstractElectronicEntity {
 
-    /**
-     * Идентификатор
-     */
-    @Id
-    private Long id;
+@Data
+@MappedSuperclass
+public abstract class AbstractElectronicEntity {
 
     /**
      * Наименование
      */
+    @Column(name = "product_type")
     @Enumerated(EnumType.STRING)
     private ProductType productType;
 
     /**
+     * Полное наименование
+     */
+    @Column(name = "full_description_type")
+    private String fullDescriptionType;
+
+    /**
      * Страна-производитель
      */
+    @Column(name = "manufacturing_country")
     private String manufacturingCountry;
 
     /**
      * Фирма-производитель
      */
+    @Column(name = "brand")
     private String brand;
 
     /**
      * Возможность покупки онлайн
      */
+    @Column(name = "is_online_order")
     private Boolean isOnlineOrder;
 
     /**
      * Возможность покупки в рассрочку
      */
+    @Column(name = "is_installment_purchasing")
     private Boolean isInstallmentPurchasing;
 
     /**
      * Серийный номер
      */
+    @Column(name = "serial_number")
     private String serialNumber;
 
     /**
      * Цвет товара
      */
+    @Column(name = "color")
     private String color;
 
     /**
      * Размер товара
      */
+    @Column(name = "size")
     private String size;
 
     /**
      * Цена товара
      */
-    private String price;
+    @Column(name = "price")
+    private Double price;
     /**
      * Наличие товара
      */
+    @Column(name = "in_stock")
     private Boolean inStock;
+
+    /**
+     * Модель товара
+     */
+    @Column(name = "model")
+    private String model;
+
+
 }
