@@ -9,39 +9,46 @@ import java.math.BigDecimal;
 @Data
 public class AbstractBaseFilter {
 
-    @Schema(name = "Наименование товара")
+    @Schema(description = "Наименование товара")
     private ProductType productType;
 
-    @Schema(name = "Страна производитель")
+    @Schema(description = "Страна производитель")
     private String manufacturingCountry;
 
-    @Schema(name = "Фирма производитель")
+    @Schema(description = "Фирма производитель")
     private String brand;
 
-    @Schema(name = "Возможность покупки онлайн")
+    @Schema(description = "Возможность покупки онлайн")
     private Boolean isOnlineOrder;
 
-    @Schema(name = "Возможность покупки в рассрочку")
+    @Schema(description = "Возможность покупки в рассрочку")
     private Boolean isInstallmentPurchasing;
 
-    @Schema(name = "Серийный номер")
+    @Schema(description = "Серийный номер")
     private String serialNumber;
 
-    @Schema(name = "Цвет товара")
+    @Schema(description = "Цвет товара")
     private String color;
 
-    @Schema(name = "Размер товара")
+    @Schema(description = "Размер товара")
     private String size;
 
-    @Schema(name = "Цена товара")
-    private String price;
+    @Schema(description = "Цена товара")
+    private Double price;
 
-    @Schema(name = "Наличие товара")
+    @Schema(description = "Наличие товара")
     private Boolean inStock;
 
-    @Schema(name = "Цена товара от")
+    @Schema(description = "Цена товара от")
     private Double priceFrom;
 
-    @Schema(name = "Цена товара до")
+    @Schema(description = "Цена товара до")
     private Double priceTo;
+
+    @Schema(description = "Полное наименование")
+    private String fullDescriptionType;
+
+    @Schema(description = "Модель товара")
+    private String model;
+
 }

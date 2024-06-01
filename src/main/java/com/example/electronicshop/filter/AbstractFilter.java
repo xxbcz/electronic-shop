@@ -11,4 +11,5 @@ public abstract class AbstractFilter {
     @Schema(description = "Количество номеров на странице")
     private int size;
 
+
 }

@@ -30,8 +30,12 @@ public class VacuumCleanerSpecification implements Specification<VacuumCleanerEn
 
             VacuumCleanerFilter filter = filterCriteria.getFilter();
 
-            if (hasLength(String.valueOf(filter.getProductType()))) {
+            if (nonNull(filter.getProductType())) {
                 predicates.add(criteriaBuilder.equal(root.get("productType"), filter.getProductType()));
+            }
+            if (hasLength(filter.getFullDescriptionType())) { //Фильтр по наименованию с игнорированием регистров
+                predicates.add(criteriaBuilder.like(criteriaBuilder.lower(root.get("fullDescriptionType")),
+                        criteriaBuilder.lower(criteriaBuilder.literal("%"+ filter.getFullDescriptionType() +"%"))));;
             }
             if (hasLength(filter.getManufacturingCountry())) {
                 predicates.add(criteriaBuilder.equal(root.get("manufacturingCountry"), filter.getManufacturingCountry()));
@@ -39,10 +43,10 @@ public class VacuumCleanerSpecification implements Specification<VacuumCleanerEn
             if (hasLength(filter.getBrand())) {
                 predicates.add(criteriaBuilder.equal(root.get("brand"), filter.getBrand()));
             }
-            if (hasLength(String.valueOf(filter.getIsOnlineOrder()))) {
+            if (nonNull(filter.getIsOnlineOrder())) {
                 predicates.add(criteriaBuilder.equal(root.get("isOnlineOrder"), filter.getIsOnlineOrder()));
             }
-            if (hasLength(String.valueOf(filter.getIsInstallmentPurchasing()))) {
+            if (nonNull(filter.getIsInstallmentPurchasing())) {
                 predicates.add(criteriaBuilder.equal(root.get("isInstallmentPurchasing"), filter.getIsInstallmentPurchasing()));
             }
             if (hasLength(filter.getSerialNumber())) {
@@ -54,7 +58,7 @@ public class VacuumCleanerSpecification implements Specification<VacuumCleanerEn
             if (hasLength(filter.getSize())) {
                 predicates.add(criteriaBuilder.equal(root.get("size"), filter.getSize()));
             }
-            if (hasLength(String.valueOf(filter.getInStock()))) {
+            if (nonNull(filter.getInStock())) {
                 predicates.add(criteriaBuilder.equal(root.get("inStock"), filter.getInStock()));
             }
             if (nonNull(filter.getPriceFrom())) {
@@ -69,6 +73,9 @@ public class VacuumCleanerSpecification implements Specification<VacuumCleanerEn
             if (nonNull(filter.getNumberOfModes())) {
                 predicates.add(criteriaBuilder.equal(root.get("numberOfModes"), filter.getNumberOfModes()));
             }
+        } else {
+            //Если фильтр не передан, вернет результат со всеми товарами в наличии
+            predicates.add(criteriaBuilder.equal(root.get("inStock"), true));
         }
         return criteriaBuilder.and(predicates.toArray(new Predicate[0]));
     }

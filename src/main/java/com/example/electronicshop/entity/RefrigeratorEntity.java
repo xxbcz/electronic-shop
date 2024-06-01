@@ -1,25 +1,32 @@
 package com.example.electronicshop.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
 @Data
-@Table(name = "bank_account")
-@NoArgsConstructor
-@AllArgsConstructor
-public class RefrigeratorEntity extends AbstractElectronicEntity{
+@Entity
+@Table(name = "refrigerators")
+public class RefrigeratorEntity extends AbstractElectronicEntity {
+
+    /**
+     * Идентификатор
+     */
+    @Id
+    @Column(name = "id")
+    private Long id;
 
     /**
      * Количество дверей
      */
     private Integer numberOfDoors;
+
     /**
      * Тип компрессора
      */
     private String compressorType;
+
 }
