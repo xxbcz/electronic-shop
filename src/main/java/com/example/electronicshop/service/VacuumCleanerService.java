@@ -5,6 +5,7 @@ import com.example.electronicshop.model.VacuumCleanerModel;
 import com.example.electronicshop.model.page.CustomPage;
 
 public interface VacuumCleanerService {
+
     /**
      * Поиск пылесоса/ов с использованием фильтров/сортировки/пагинации
      */
@@ -14,4 +15,5 @@ public interface VacuumCleanerService {
      * Добавление пылесоса
      */
     void addVacuumCleaner(VacuumCleanerModel model);
+
 }

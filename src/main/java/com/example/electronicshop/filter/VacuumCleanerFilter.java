@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 public class VacuumCleanerFilter extends AbstractBaseFilter {
 
     @Schema(description = "Объем пылесборника")
-    private String volumeOfVacuum;
+    private Double volumeOfVacuum;
     @Schema(description = "Количество режимов работы")
     private Integer numberOfModes;
 

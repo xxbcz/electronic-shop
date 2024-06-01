@@ -30,15 +30,16 @@ public class VacuumCleanerSpecification implements Specification<VacuumCleanerEn
 
             VacuumCleanerFilter filter = filterCriteria.getFilter();
 
-            if (nonNull(filter.getProductType())) {
-                predicates.add(criteriaBuilder.equal(root.get("productType"), filter.getProductType()));
-            }
-            if (hasLength(filter.getFullDescriptionType())) { //Фильтр по наименованию с игнорированием регистров
+            if (hasLength(filter.getFullDescriptionType())) {
                 predicates.add(criteriaBuilder.like(criteriaBuilder.lower(root.get("fullDescriptionType")),
-                        criteriaBuilder.lower(criteriaBuilder.literal("%"+ filter.getFullDescriptionType() +"%"))));;
+                        criteriaBuilder.lower(criteriaBuilder.literal("%" + filter.getFullDescriptionType() + "%"))));
+                ;
             }
             if (hasLength(filter.getManufacturingCountry())) {
                 predicates.add(criteriaBuilder.equal(root.get("manufacturingCountry"), filter.getManufacturingCountry()));
+            }
+            if (hasLength(filter.getModel())) {
+                predicates.add(criteriaBuilder.equal(root.get("model"), filter.getModel()));
             }
             if (hasLength(filter.getBrand())) {
                 predicates.add(criteriaBuilder.equal(root.get("brand"), filter.getBrand()));
@@ -55,9 +56,6 @@ public class VacuumCleanerSpecification implements Specification<VacuumCleanerEn
             if (hasLength(filter.getColor())) {
                 predicates.add(criteriaBuilder.equal(root.get("color"), filter.getColor()));
             }
-            if (hasLength(filter.getSize())) {
-                predicates.add(criteriaBuilder.equal(root.get("size"), filter.getSize()));
-            }
             if (nonNull(filter.getInStock())) {
                 predicates.add(criteriaBuilder.equal(root.get("inStock"), filter.getInStock()));
             }
@@ -67,14 +65,13 @@ public class VacuumCleanerSpecification implements Specification<VacuumCleanerEn
             if (nonNull(filter.getPriceTo())) {
                 predicates.add(criteriaBuilder.lessThanOrEqualTo(root.get("price"), filter.getPriceTo()));
             }
-            if (hasLength(filter.getVolumeOfVacuum())) {
+            if (nonNull(filter.getVolumeOfVacuum())) {
                 predicates.add(criteriaBuilder.equal(root.get("volumeOfVacuum"), filter.getVolumeOfVacuum()));
             }
             if (nonNull(filter.getNumberOfModes())) {
                 predicates.add(criteriaBuilder.equal(root.get("numberOfModes"), filter.getNumberOfModes()));
             }
         } else {
-            //Если фильтр не передан, вернет результат со всеми товарами в наличии
             predicates.add(criteriaBuilder.equal(root.get("inStock"), true));
         }
         return criteriaBuilder.and(predicates.toArray(new Predicate[0]));

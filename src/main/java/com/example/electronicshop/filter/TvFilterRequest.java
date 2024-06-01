@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @Schema(description = "Запрос на поиск телевизоров")
-public class TvFilterRequest {
+public class TvFilterRequest extends AbstractFilter {
 
     @Schema(description = "Фильтр на поиск")
     private TVFilter filter;
