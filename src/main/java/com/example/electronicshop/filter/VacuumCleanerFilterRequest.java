@@ -8,9 +8,6 @@ import org.springframework.data.domain.Sort;
 @Schema(description = "Запрос на поиск пылесосов")
 public class VacuumCleanerFilterRequest extends AbstractFilter {
 
-    @Schema(description = "Направление сортировки")
-    private Sort.Direction sort;
-
     @Schema(description = "Фильтр на поиск")
     private VacuumCleanerFilter filter;
 

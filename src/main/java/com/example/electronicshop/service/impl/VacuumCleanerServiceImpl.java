@@ -5,16 +5,12 @@ import com.example.electronicshop.entity.VacuumCleanerEntity;
 import com.example.electronicshop.filter.VacuumCleanerFilterRequest;
 import com.example.electronicshop.mapper.VacuumCleanerMapper;
 import com.example.electronicshop.model.VacuumCleanerModel;
-
-
 import com.example.electronicshop.model.page.CustomPage;
 import com.example.electronicshop.repository.VacuumCleanerRepository;
 import com.example.electronicshop.service.VacuumCleanerService;
 import com.example.electronicshop.specification.VacuumCleanerSpecification;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-
-
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -35,7 +31,7 @@ public class VacuumCleanerServiceImpl implements VacuumCleanerService {
 
     @Override
     public CustomPage<VacuumCleanerModel> findBy(VacuumCleanerFilterRequest filter) {
-        Specification<VacuumCleanerEntity> snowboardSpecification = new VacuumCleanerSpecification(filter);
+        Specification<VacuumCleanerEntity> specification = new VacuumCleanerSpecification(filter);
 
         if (filter.getSize() < 1 || filter.getSize() > properties.getMaxSize()) {
             log.error("Не верное значение размера страницы: {}. Исправлено на дефолт.", filter.getSize());
@@ -50,7 +46,7 @@ public class VacuumCleanerServiceImpl implements VacuumCleanerService {
 
         Sort.Direction sort = filter.getSort() == null ? Sort.Direction.ASC : filter.getSort();
 
-        Page<VacuumCleanerModel> result = repository.findAll(snowboardSpecification,
+        Page<VacuumCleanerModel> result = repository.findAll(specification,
                         PageRequest.of(filter.getPage() - 1, filter.getSize(),
                                 Sort.by(sort, "price")))
                 .map(VacuumCleanerMapper::toModel);

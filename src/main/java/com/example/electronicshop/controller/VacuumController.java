@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/vacuum")
-public class ApiController {
-    private final VacuumCleanerService vacuumCleanerService;
+public class VacuumController {
+    private final VacuumCleanerService service;
 
     @Operation(summary = "Поиск по пылесосам")
     @ApiResponses(value = {
@@ -31,11 +31,18 @@ public class ApiController {
     })
     @PostMapping("/find")
     public CustomPage<VacuumCleanerModel> findBy(@RequestBody VacuumCleanerFilterRequest filter) {
-        return vacuumCleanerService.findBy(filter);
+        return service.findBy(filter);
     }
 
+    @Operation(summary = "Добавление товара")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Товар добавлен успешно"),
+            @ApiResponse(responseCode = "404", description = "Запрошенные данные не найдены"),
+            @ApiResponse(responseCode = "403", description = "Доступ запрещен"),
+            @ApiResponse(responseCode = "422", description = "Ошибка обработки запроса")
+    })
     @PostMapping("/add")
     public void addVacuumCleaner(@RequestBody VacuumCleanerModel model) {
-        vacuumCleanerService.addVacuumCleaner(model);
+        service.addVacuumCleaner(model);
     }
 }

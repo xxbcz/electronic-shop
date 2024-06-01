@@ -2,10 +2,7 @@ package com.example.electronicshop.entity;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 
 @Data
@@ -17,17 +14,20 @@ public class PersonalComputerEntity extends AbstractElectronicEntity {
      * Идентификатор
      */
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
     /**
      * Категория
      */
+    @Column(name = "category")
     private String category;
 
     /**
      * Тип процессора
      */
+    @Column(name = "processor_type")
     private String processorType;
 
 }

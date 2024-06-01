@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 public class SmartphoneFilter extends AbstractBaseFilter {
 
     @Schema(description = "Объем памяти")
-    private Integer ram;
+    private Integer memory;
     @Schema(description = "Количество камер")
     private Integer numberOfCameras;
 

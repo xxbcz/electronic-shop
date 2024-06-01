@@ -9,10 +9,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Schema(description = "Данные о смартфоне")
-public class SmartPhoneModel extends AbstractBaseModel{
+public class SmartphoneModel extends AbstractBaseModel{
 
     @Schema(description = "Объем памяти")
-    private Integer ram;
+    private Integer memory;
     @Schema(description = "Количество камер")
     private Integer numberOfCameras;
 
