@@ -38,9 +38,6 @@ public class TvSpecification implements Specification<TvEntity> {
             if (hasLength(filter.getManufacturingCountry())) {
                 predicates.add(criteriaBuilder.equal(root.get("manufacturingCountry"), filter.getManufacturingCountry()));
             }
-            if (hasLength(filter.getModel())) {
-                predicates.add(criteriaBuilder.equal(root.get("model"), filter.getModel()));
-            }
             if (hasLength(filter.getBrand())) {
                 predicates.add(criteriaBuilder.equal(root.get("brand"), filter.getBrand()));
             }

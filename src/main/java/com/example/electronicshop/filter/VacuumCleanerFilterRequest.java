@@ -2,7 +2,6 @@ package com.example.electronicshop.filter;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
-import org.springframework.data.domain.Sort;
 
 @Data
 @Schema(description = "Запрос на поиск пылесосов")
