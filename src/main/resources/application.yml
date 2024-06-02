@@ -10,8 +10,6 @@ app:
 spring:
   application:
     name: electronic-shop
-  flyway:
-    baselineOnMigrate: true
   jpa:
     properties:
       hibernate:
