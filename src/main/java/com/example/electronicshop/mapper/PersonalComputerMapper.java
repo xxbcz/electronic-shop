@@ -2,16 +2,17 @@ package com.example.electronicshop.mapper;
 
 import com.example.electronicshop.entity.PersonalComputerEntity;
 import com.example.electronicshop.model.PersonalComputerModel;
+import com.example.electronicshop.type.ProductType;
 import lombok.experimental.UtilityClass;
 
 @UtilityClass
 public class PersonalComputerMapper {
     public static PersonalComputerEntity toEntity(PersonalComputerModel model) {
         PersonalComputerEntity entity = new PersonalComputerEntity();
-        entity.setId(model.getId());
         entity.setModel(model.getModel());
+        entity.setProductType(ProductType.PERSONAL_COMPUTER);
         entity.setFullDescriptionType(
-                model.getProductType().getValue() + " " + model.getBrand() + " " + model.getModel());
+                entity.getProductType().getValue() + " " + model.getBrand() + " " + model.getModel());
         entity.setCategory(model.getCategory());
         entity.setProcessorType(model.getProcessorType());
         entity.setBrand(model.getBrand());
@@ -20,7 +21,6 @@ public class PersonalComputerMapper {
         entity.setIsOnlineOrder(model.getIsOnlineOrder());
         entity.setPrice(model.getPrice());
         entity.setManufacturingCountry(model.getManufacturingCountry());
-        entity.setProductType(model.getProductType());
         entity.setSerialNumber(model.getSerialNumber());
         entity.setIsInstallmentPurchasing(model.getIsInstallmentPurchasing());
         entity.setSize(model.getSize());
@@ -31,7 +31,6 @@ public class PersonalComputerMapper {
         PersonalComputerModel model = new PersonalComputerModel();
         model.setModel(entity.getModel());
         model.setFullDescriptionType(entity.getFullDescriptionType());
-        model.setId(entity.getId());
         model.setCategory(entity.getCategory());
         model.setProcessorType(entity.getProcessorType());
         model.setBrand(entity.getBrand());

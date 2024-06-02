@@ -7,9 +7,6 @@ import lombok.Data;
 @Data
 abstract public class AbstractBaseModel {
 
-    @Schema(description = "Идентификатор товара")
-    private Long id;
-
     @Schema(description = "Наименование товара")
     private ProductType productType;
 

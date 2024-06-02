@@ -2,16 +2,17 @@ package com.example.electronicshop.mapper;
 
 import com.example.electronicshop.entity.SmartphoneEntity;
 import com.example.electronicshop.model.SmartphoneModel;
+import com.example.electronicshop.type.ProductType;
 import lombok.experimental.UtilityClass;
 
 @UtilityClass
 public class SmartphoneMapper {
     public static SmartphoneEntity toEntity(SmartphoneModel model) {
         SmartphoneEntity entity = new SmartphoneEntity();
-        entity.setId(model.getId());
         entity.setModel(model.getModel());
+        entity.setProductType(ProductType.SMARTPHONE);
         entity.setFullDescriptionType(
-                model.getProductType().getValue() + " " + model.getBrand() + " " + model.getModel());
+                entity.getProductType().getValue() + " " + model.getBrand() + " " + model.getModel());
         entity.setMemory(model.getMemory());
         entity.setNumberOfCameras(model.getNumberOfCameras());
         entity.setBrand(model.getBrand());
@@ -20,7 +21,6 @@ public class SmartphoneMapper {
         entity.setIsOnlineOrder(model.getIsOnlineOrder());
         entity.setPrice(model.getPrice());
         entity.setManufacturingCountry(model.getManufacturingCountry());
-        entity.setProductType(model.getProductType());
         entity.setSerialNumber(model.getSerialNumber());
         entity.setIsInstallmentPurchasing(model.getIsInstallmentPurchasing());
         entity.setSize(model.getSize());
@@ -31,7 +31,6 @@ public class SmartphoneMapper {
         SmartphoneModel model = new SmartphoneModel();
         model.setModel(entity.getModel());
         model.setFullDescriptionType(entity.getFullDescriptionType());
-        model.setId(entity.getId());
         model.setMemory(entity.getMemory());
         model.setNumberOfCameras(entity.getNumberOfCameras());
         model.setBrand(entity.getBrand());

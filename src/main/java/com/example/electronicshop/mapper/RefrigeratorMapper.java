@@ -2,16 +2,17 @@ package com.example.electronicshop.mapper;
 
 import com.example.electronicshop.entity.RefrigeratorEntity;
 import com.example.electronicshop.model.RefrigeratorModel;
+import com.example.electronicshop.type.ProductType;
 import lombok.experimental.UtilityClass;
 
 @UtilityClass
 public class RefrigeratorMapper {
     public static RefrigeratorEntity toEntity(RefrigeratorModel model) {
         RefrigeratorEntity entity = new RefrigeratorEntity();
-        entity.setId(model.getId());
         entity.setModel(model.getModel());
+        entity.setProductType(ProductType.REFRIGERATOR);
         entity.setFullDescriptionType(
-                model.getProductType().getValue() + " " + model.getBrand() + " " + model.getModel());
+                entity.getProductType().getValue() + " " + model.getBrand() + " " + model.getModel());
         entity.setCompressorType(model.getCompressorType());
         entity.setNumberOfDoors(model.getNumberOfDoors());
         entity.setBrand(model.getBrand());
@@ -20,7 +21,6 @@ public class RefrigeratorMapper {
         entity.setIsOnlineOrder(model.getIsOnlineOrder());
         entity.setPrice(model.getPrice());
         entity.setManufacturingCountry(model.getManufacturingCountry());
-        entity.setProductType(model.getProductType());
         entity.setSerialNumber(model.getSerialNumber());
         entity.setIsInstallmentPurchasing(model.getIsInstallmentPurchasing());
         entity.setSize(model.getSize());
@@ -31,7 +31,6 @@ public class RefrigeratorMapper {
         RefrigeratorModel model = new RefrigeratorModel();
         model.setModel(entity.getModel());
         model.setFullDescriptionType(entity.getFullDescriptionType());
-        model.setId(entity.getId());
         model.setNumberOfDoors(entity.getNumberOfDoors());
         model.setCompressorType(entity.getCompressorType());
         model.setBrand(entity.getBrand());
