@@ -7,12 +7,12 @@ import com.example.electronicshop.model.page.CustomPage;
 public interface PersonalComputerService {
 
     /**
-     * Поиск пылесоса/ов с использованием фильтров/сортировки/пагинации
+     * Поиск персонального компьютера/ов с использованием фильтров/сортировки/пагинации
      */
     CustomPage<PersonalComputerModel> findBy(PersonalComputerFilterRequest filter);
 
     /**
-     * Добавление пылесоса
+     * Добавление персонального компьютера
      */
     void addPersonalComputer(PersonalComputerModel model);
 

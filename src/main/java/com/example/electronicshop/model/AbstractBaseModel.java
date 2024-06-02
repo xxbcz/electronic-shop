@@ -4,9 +4,6 @@ import com.example.electronicshop.type.ProductType;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
-import javax.persistence.Column;
-import java.math.BigDecimal;
-
 @Data
 abstract public class AbstractBaseModel {
 
