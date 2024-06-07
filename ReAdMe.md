@@ -32,10 +32,10 @@ Telegram: @powder_days
 **Запуск**
 
 Java 8.
+База для удобства - H2, заполняется автоматически.
+
 1. Скачать проект в zip или клонировать ветку.
-2. Создать базу данных по адресу jdbc:postgresql://localhost:5432/electronic-shop логин/пароль: postgres
-3. Подтянуть все зависимости
-4. Собрать проект в мавен
-5. Выполнить вручную SQL код из файла data.sql
-6. Запустить приложение ElectronicShopApplication.
-7. Swagger находится по адресу http://localhost:8080/swagger-ui/index.html
+2. Подтянуть все зависимости
+3. Собрать проект в мавен
+4. Запустить приложение ElectronicShopApplication.
+5. Swagger находится по адресу http://localhost:8080/swagger-ui/index.html

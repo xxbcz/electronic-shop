@@ -31,7 +31,7 @@ public class PersonalComputerServiceImpl implements PersonalComputerService {
 
     @Override
     public CustomPage<PersonalComputerModel> findBy(PersonalComputerFilterRequest filter) {
-        Specification<PersonalComputerEntity> snowboardSpecification = new PersonalComputerSpecification(filter);
+        Specification<PersonalComputerEntity> specification = new PersonalComputerSpecification(filter);
 
         if (filter.getSize() < 1 || filter.getSize() > properties.getMaxSize()) {
             log.error("Не верное значение размера страницы: {}. Исправлено на дефолт.", filter.getSize());
@@ -46,7 +46,7 @@ public class PersonalComputerServiceImpl implements PersonalComputerService {
 
         Sort.Direction sort = filter.getSort() == null ? Sort.Direction.ASC : filter.getSort();
 
-        Page<PersonalComputerModel> result = repository.findAll(snowboardSpecification,
+        Page<PersonalComputerModel> result = repository.findAll(specification,
                         PageRequest.of(filter.getPage() - 1, filter.getSize(),
                                 Sort.by(sort, "price")))
                 .map(PersonalComputerMapper::toModel);

@@ -127,7 +127,7 @@ values ('oled', 'категория3', 'TV', 'Japan', 'Panasonic', false, true, 
         '130x180x120', 200000, false, '2JZ', 'Телевизор Panasonic 2JZ');
 
 insert into smartphones (memory, number_of_cameras, product_type, manufacturing_country, brand, is_online_order,
-                is_installment_purchasing, serial_number, color, size, price, in_stock
+                         is_installment_purchasing, serial_number, color, size, price, in_stock
     , model, full_description_type)
 values (8, 4, 'SMARTPHONE', 'China', 'Xiaomi', true, true, 'f3478fg', 'black',
         '10x5x1', 10000, true, 'ph22', 'Смартфон Xiaomi ph22');

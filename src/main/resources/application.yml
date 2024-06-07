@@ -17,13 +17,10 @@ spring:
         generate_statistics: true
         order_inserts: true
         jdbc.batch_size: 100
+        generate-ddl: false
+        ddl-auto: create
   datasource:
-    url: jdbc:postgresql://localhost:5432/electronic-shop
-    driver-class-name: org.postgresql.Driver
-    password: postgres
-    username: postgres
-    hikari:
-      maximum-pool-size: 8
-      minimum-idle: 4
-
-
+    url: jdbc:h2:mem:bank
+    driverClassName: org.h2.Driver
+    username: sa
+    password:

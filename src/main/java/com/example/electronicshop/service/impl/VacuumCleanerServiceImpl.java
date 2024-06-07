@@ -10,7 +10,6 @@ import com.example.electronicshop.repository.VacuumCleanerRepository;
 import com.example.electronicshop.service.VacuumCleanerService;
 import com.example.electronicshop.specification.VacuumCleanerSpecification;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -18,7 +17,6 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 @Service
-@Slf4j
 @RequiredArgsConstructor
 public class VacuumCleanerServiceImpl implements VacuumCleanerService {
     private final VacuumCleanerRepository repository;
@@ -34,12 +32,10 @@ public class VacuumCleanerServiceImpl implements VacuumCleanerService {
         Specification<VacuumCleanerEntity> specification = new VacuumCleanerSpecification(filter);
 
         if (filter.getSize() < 1 || filter.getSize() > properties.getMaxSize()) {
-            log.error("Не верное значение размера страницы: {}. Исправлено на дефолт.", filter.getSize());
             filter.setSize(properties.getSize());
 
         }
         if (filter.getPage() < 1) {
-            log.error("Не верное значение номера страницы: {}. Исправлено на дефолт.", filter.getPage());
             filter.setPage(properties.getNumber());
 
         }

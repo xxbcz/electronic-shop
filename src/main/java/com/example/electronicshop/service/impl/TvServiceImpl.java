@@ -10,7 +10,6 @@ import com.example.electronicshop.repository.TvRepository;
 import com.example.electronicshop.service.TvService;
 import com.example.electronicshop.specification.TvSpecification;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -18,7 +17,6 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 @Service
-@Slf4j
 @RequiredArgsConstructor
 public class TvServiceImpl implements TvService {
     private final TvRepository repository;
@@ -34,12 +32,10 @@ public class TvServiceImpl implements TvService {
         Specification<TvEntity> specification = new TvSpecification(filter);
 
         if (filter.getSize() < 1 || filter.getSize() > properties.getMaxSize()) {
-            log.error("Не верное значение размера страницы: {}. Исправлено на дефолт.", filter.getSize());
             filter.setSize(properties.getSize());
 
         }
         if (filter.getPage() < 1) {
-            log.error("Не верное значение номера страницы: {}. Исправлено на дефолт.", filter.getPage());
             filter.setPage(properties.getNumber());
 
         }
