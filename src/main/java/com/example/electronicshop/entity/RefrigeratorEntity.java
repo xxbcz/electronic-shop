@@ -20,11 +20,13 @@ public class RefrigeratorEntity extends AbstractElectronicEntity {
     /**
      * Количество дверей
      */
+    @Column(name = "Количество дверей")
     private Integer numberOfDoors;
 
     /**
      * Тип компрессора
      */
+    @Column(name = "Тип компрессора")
     private String compressorType;
 
 }

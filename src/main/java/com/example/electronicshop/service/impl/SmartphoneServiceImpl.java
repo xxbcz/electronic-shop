@@ -10,14 +10,12 @@ import com.example.electronicshop.repository.SmartphoneRepository;
 import com.example.electronicshop.service.SmartphoneService;
 import com.example.electronicshop.specification.SmartphoneSpecification;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
-@Slf4j
 @Service
 @RequiredArgsConstructor
 public class SmartphoneServiceImpl implements SmartphoneService {
@@ -34,12 +32,10 @@ public class SmartphoneServiceImpl implements SmartphoneService {
         Specification<SmartphoneEntity> specification = new SmartphoneSpecification(filter);
 
         if (filter.getSize() < 1 || filter.getSize() > properties.getMaxSize()) {
-            log.error("Не верное значение размера страницы: {}. Исправлено на дефолт.", filter.getSize());
             filter.setSize(properties.getSize());
 
         }
         if (filter.getPage() < 1) {
-            log.error("Не верное значение номера страницы: {}. Исправлено на дефолт.", filter.getPage());
             filter.setPage(properties.getNumber());
 
         }
