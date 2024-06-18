@@ -44,3 +44,5 @@ Java 8.
 3. Собрать проект в мавен
 4. Запустить приложение ElectronicShopApplication.
 5. Swagger находится по адресу http://localhost:8080/swagger-ui/index.html
+
+Условия задачи лежат в "Задача.docx"
